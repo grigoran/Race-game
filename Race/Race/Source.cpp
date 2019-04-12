@@ -4,7 +4,7 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML works!");
 	//car mainCar("gamedata/textures/car2.jpg", sf::Color::Blue, 10, 10, 0);
 	sf::Texture texture;
 	texture.loadFromFile("car.png");
