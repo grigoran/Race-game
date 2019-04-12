@@ -6,10 +6,10 @@ car::car(const char* tex, sf::Color color, float _xPos, float _yPos, float _tilt
 	tilt(_tilt),
 	speed(0)
 {
-	sf::Texture texture;
 	texture.loadFromFile(tex);
 	sprite.setTexture(texture);
-	//sprite.setColor(color);
+	sprite.setScale(0.05f, 0.05f);
+	sprite.setColor(color);
 }
 
 
