@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>C:\Users\Igor\source\repos\Race-game\sfml\lib;$(LibraryPath)</LibraryPath>
-    <IncludePath>C:\Users\Igor\source\repos\Race-game\sfml\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\programing\c++\race game\sfml\lib;C:\Users\Igor\source\repos\Race-game\sfml\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\programing\c++\race game\sfml\include;C:\Users\Igor\source\repos\Race-game\sfml\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>C:\Users\Igor\source\repos\Race-game\sfml\include</IncludePath>
