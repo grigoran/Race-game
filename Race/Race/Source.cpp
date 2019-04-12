@@ -1,11 +1,15 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "car.h"
 
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
+	//car mainCar("gamedata/textures/car2.jpg", sf::Color::Blue, 10, 10, 0);
+	sf::Texture texture;
+	texture.loadFromFile("car.png");
+	sf::Sprite sprite;
+	sprite.setTexture(texture);
 
 	while (window.isOpen())
 	{
@@ -17,10 +21,9 @@ int main()
 		}
 
 		window.clear();
-		window.draw(shape);
+		window.draw(sprite);
 		window.display();
 	}
-	std::cout << "lox\n";
 
 	return 0;
 }
