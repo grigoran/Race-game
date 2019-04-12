@@ -4,11 +4,19 @@
 
 int main()
 {
+	sf::Clock clock;
+	sf::Time deltaTime;
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
+	//window.setFramerateLimit(120);
 	car mainCar("gamedata/textures/car.png", sf::Color::White, 200, 200, 0);
+	bool mainMooved = 0;
+	const float tiltSpeed=250;
+	const float speed = 10;
 
 	while (window.isOpen())
 	{
+		deltaTime = clock.getElapsedTime();
+		clock.restart();
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -20,23 +28,27 @@ int main()
 				}
 			}
 		}
-
+		mainMooved = 0;
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-			mainCar.gas(0.4);
+			mainCar.gas(speed,deltaTime);
+			mainMooved = 1;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-			mainCar.gas(-0.4);
+			mainCar.gas(-speed,deltaTime);
+			mainMooved = 1;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-			mainCar.turn(-0.3);
+			mainCar.turn(-tiltSpeed*deltaTime.asSeconds());
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-			mainCar.turn(0.3);
+			mainCar.turn(tiltSpeed*deltaTime.asSeconds());
 		}
+		if(!mainMooved) mainCar.gas(0,deltaTime);
 
 		window.clear(sf::Color::White);
 		window.draw(mainCar);
 		window.display();
+
 	}
 
 	return 0;

@@ -4,7 +4,7 @@
 class car : public sf::Drawable {
 public:
 	car(const char* _tex,sf::Color color, float _xPos, float _yPos,  float _tilt);
-	void gas(float vel);
+	void gas(float vel,sf::Time deltatime);
 	void brake(float vel);
 	void turn(float vel);
 private:
@@ -15,4 +15,5 @@ private:
 	float yPos;
 	float tilt;
 	float speed;
+	const float maxSpeed;
 };

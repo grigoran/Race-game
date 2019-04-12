@@ -5,7 +5,8 @@ car::car(const char* tex, sf::Color color, float _xPos, float _yPos, float _tilt
 	xPos(_xPos),
 	yPos(_yPos),
 	tilt(_tilt),
-	speed(0)
+	speed(0),
+	maxSpeed(10)
 {
 	texture.loadFromFile(tex);
 	sprite.setTexture(texture);
@@ -20,13 +21,18 @@ void car::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 	target.draw(sprite);
 }
 
-void car::gas(float vel) {
+void car::gas(float vel,sf::Time deltatime) {
+	std::cout <<"speed "<<fabs(speed) / speed << " vel "<<fabs(vel)/vel<<std::endl;
+	if(fabs(speed)<maxSpeed||(fabs(speed)/speed)!=(fabs(vel)/vel)) speed += vel*deltatime.asSeconds();
+	if (vel == 0) {
+		speed -= speed * deltatime.asSeconds();
+	}
 	float rad = ((sprite.getRotation() * 3.14) / 180);
-	float xSpeed = cos(rad)*vel;
-	float ySpeed = sin(rad)*vel;
+	float xSpeed = cos(rad)*speed;
+	float ySpeed = sin(rad)*speed;
 	sprite.move(xSpeed, ySpeed);
 }
 
 void car::turn(float vel) {
-	sprite.rotate(vel);
+	sprite.rotate(vel*fabs(speed) / maxSpeed);
 }
