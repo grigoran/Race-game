@@ -6,12 +6,12 @@ int main()
 {
 	sf::Clock clock;
 	sf::Time deltaTime;
-	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(1920, 1080), "SFML works!");
 	//window.setFramerateLimit(120);
 	car mainCar("gamedata/textures/car.png", sf::Color::White, 200, 200, 0);
 	bool mainMooved = 0;
 	const float tiltSpeed=250;
-	const float speed = 10;
+	const float speed = 250;
 
 	while (window.isOpen())
 	{

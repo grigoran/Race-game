@@ -6,13 +6,13 @@ car::car(const char* tex, sf::Color color, float _xPos, float _yPos, float _tilt
 	yPos(_yPos),
 	tilt(_tilt),
 	speed(0),
-	maxSpeed(10)
+	maxSpeed(400)
 {
 	texture.loadFromFile(tex);
 	sprite.setTexture(texture);
 	sprite.setPosition(xPos, yPos);
 	sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
-	sprite.setScale(0.05f, 0.05f);
+	sprite.setScale(0.03f, 0.03f);
 	sprite.setColor(color);
 }
 
@@ -28,11 +28,11 @@ void car::gas(float vel,sf::Time deltatime) {
 		speed -= speed * deltatime.asSeconds();
 	}
 	float rad = ((sprite.getRotation() * 3.14) / 180);
-	float xSpeed = cos(rad)*speed;
-	float ySpeed = sin(rad)*speed;
+	float xSpeed = cos(rad) * speed * deltatime.asSeconds();
+	float ySpeed = sin(rad)*speed*deltatime.asSeconds();
 	sprite.move(xSpeed, ySpeed);
 }
 
 void car::turn(float vel) {
-	sprite.rotate(vel*fabs(speed) / maxSpeed);
+	sprite.rotate(vel*speed /maxSpeed);
 }
