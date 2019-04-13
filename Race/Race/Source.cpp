@@ -44,7 +44,7 @@ int main()
 			mainCar.gas(speed,deltaTime);
 			mainMooved = 1;
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)&&!mainMooved) {
 			mainCar.gas(-speed,deltaTime);
 			mainMooved = 1;
 		}
