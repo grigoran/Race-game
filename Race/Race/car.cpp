@@ -22,7 +22,6 @@ void car::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 }
 
 void car::gas(float vel,sf::Time deltatime) {
-	std::cout <<"speed "<<fabs(speed) / speed << " vel "<<fabs(vel)/vel<<std::endl;
 	if(fabs(speed)<maxSpeed||(fabs(speed)/speed)!=(fabs(vel)/vel)) speed += vel*deltatime.asSeconds();
 	if (vel == 0) {
 		speed -= speed * deltatime.asSeconds();

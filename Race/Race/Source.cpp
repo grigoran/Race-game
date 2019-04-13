@@ -7,7 +7,8 @@ int main()
 	sf::Clock clock;
 	sf::Time deltaTime;
 	sf::RenderWindow window(sf::VideoMode(1920, 1080), "SFML works!");
-	//window.setFramerateLimit(120);
+	int framrate = 120;
+	window.setFramerateLimit(framrate);
 	car mainCar("gamedata/textures/car.png", sf::Color::White, 200, 200, 0);
 	bool mainMooved = 0;
 	const float tiltSpeed=250;
@@ -25,6 +26,16 @@ int main()
 			if (event.type == sf::Event::KeyPressed) {
 				if (event.key.code == sf::Keyboard::Escape) {
 					window.close();
+				}
+				if (event.key.code == sf::Keyboard::Down) {
+					framrate -= 5;
+					window.setFramerateLimit(framrate);
+					std::cout << framrate << std::endl;
+				}
+				if (event.key.code == sf::Keyboard::Up) {
+					framrate += 5;
+					window.setFramerateLimit(framrate);
+					std::cout << framrate << std::endl;
 				}
 			}
 		}
