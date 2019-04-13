@@ -16,4 +16,6 @@ private:
 	float tilt;
 	float speed;
 	const float maxSpeed;
+	const float brakes;
+	const float inert;
 };

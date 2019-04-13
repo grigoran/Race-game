@@ -11,7 +11,7 @@ int main()
 	window.setFramerateLimit(framrate);
 	car mainCar("gamedata/textures/car.png", sf::Color::White, 200, 200, 0);
 	bool mainMooved = 0;
-	const float tiltSpeed=250;
+	const float tiltSpeed=400;
 	const float speed = 250;
 
 	while (window.isOpen())
